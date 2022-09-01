@@ -1,0 +1,17 @@
+pipeline{
+    agent any
+    environment{
+      PATH = "/opt/maven/apache-maven-3.8.6/bin:$PATH"
+      stages{
+          stage("GIT SCM"){
+              steps{
+                  git credentialsId: 'github1', url: 'https://github.com/rehman786muneeb/02---Jenkins-Declarative-github.git'
+              }
+          }
+          stage("MVN"){
+              steps{
+                  sh " mvn clean package"
+              }
+          }
+      }
+}
