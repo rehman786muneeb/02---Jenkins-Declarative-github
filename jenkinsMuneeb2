@@ -1,0 +1,10 @@
+pipeline{
+    agent any
+      stages{
+          stage(welcome){
+              steps{
+                  git credentialsId: 'github1', url: 'https://github.com/rehman786muneeb/02---Jenkins-Declarative-github.git'
+              }
+          }
+      }
+}
